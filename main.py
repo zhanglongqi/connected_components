@@ -3,7 +3,7 @@ from typing import List
 
 def main(image: List[int]):
 
-	equ = [[1,1]]
+	equ = [[1, 1]]
 
 	image.insert(0, image[0])
 	for row in range(0, len(image)):
@@ -12,8 +12,11 @@ def main(image: List[int]):
 	for row in range(1, len(image)):
 		for col in range(1, len(image[0])):
 			if image[row][col] != 0:
-				if 0== image[row][col-1] and 0== image[row-1][col]:
-					new_val = equ[len(equ)-1][0]
+				if 0 == image[row][col - 1] and 0 == image[row - 1][col]:
+					new_val = equ[len(equ) - 1][0] + 1
+					equ.append([new_val,new_val])
+				if 0 != image[row][col - 1] and 0 == image[row - 1][col]:
+					
 
 
 def read_image(image_file: str, debug: bool):
